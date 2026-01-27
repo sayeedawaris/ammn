@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMMN Car Insurance</title>
+    <link rel="stylesheet" href="form(1).css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="Frame 30.png" alt="AMMN Logo" class="logo-image">
+            </div>
+            <div class="nav">
+                <a href="#">Our panic</a>
+                <a href="#">Main</a>
+                <a href="#">Contact us</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                    <img src ="Language.png" alt="saudi-flag" class="saudi-icon"></span>
+                    <img src ="Login.png" alt="sme-login" class="sme-login"></span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-page="car-details">
+               <img src="Frame.png" alt="Car Icon" class="tab-icon">
+                Car Details
+            </div>
+            <div class="tab" data-page="insurance-details">
+                <img src="Frame (1).png" alt="Car Icon" class="tab-icon">
+                Insurance Details
+            </div>
+            <div class="tab" data-page="offers">
+               <img src="Frame (2).png" alt="Offers Icon" class="tab-icon">
+                Offers
+            </div>
+            <div class="tab" data-page="quotes">
+                <img src="Frame (3).png" alt="Quotes Icon" class="tab-icon">
+                Quotes List
+            </div>
+            <div class="tab" data-page="quote-modal">
+                <img src="Frame (4).png" alt="Quote Details Icon" class="tab-icon">
+                Quote Details Model
+            </div>
+            <div class="tab" data-page="checkout">
+                <img src="Frame (5).png" alt="Checkout Icon" class="tab-icon">
+                Checkout & Payment
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="left-logo">
+            <!-- Left Ellipse Image -->
+            <img src="Ellipse 768 (1).png" alt="Ellipse" class="left-ellipse">
+            </div>
+            <!-- Right Logo Image -->
+           <div class="right-logo">
+           <img src="Vector 3 (1).png" alt="Logo" class="right-logo">
+        </div>
+            
+           <div id="car-details-page" class="page-content active">
+            <div class="form-container">
+                <div class="title">
+                    <h1>Secure your car and have<br>peace of mind.</h1>
+                </div>
+                <p class="subtitle">With a few simple steps, we bring you the best offers from all<br>approved companies.</p>
+
+                <div class="form-card">
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="customsNumber" onchange="toggleYearField()">
+                            <span>My car has a customs number <span class="badge">(new)</span></span>
+                        </label>
+                    </div>
+
+    
+                     <div class="dual-input-row">
+                        <div class="input-group">
+                            <label for="serialNumber">Customs card number</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="serialNumber" placeholder="For example: 1234567890">
+                                <div class="info-icon">i</div>
+                            </div>
+                        </div>
+                    <div class="input-group hidden" id="yearOfManufacture">
+                            <label for="yearInput">Year of manufacture</label>
+                            <div class="input-wrapper">
+                                <select id="yearInput" required>
+                                   <option value="">For example: 2005 </option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                </select>
+                                <div class="info-icon"> ↓ </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="additional-data">
+                        <label class="additional-data-label">
+                            <input type="checkbox" id="additionalData" checked onchange="toggleAdditionalSections()">
+                            <div class="additional-data-text">
+                                <strong>Show Additional Data</strong>
+                                <small>(The more information you have, the more discounts we can offer you.)</small>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Vehicle Data and Usage Section -->
+                    <div id="vehicleDataSection" class="additional-sections">
+                        <div class="section-header">
+                            <div class="section-title">
+                                <img src="Frame (6).png" alt="Vehicle Icon" class="section-icon">
+                                <h3>Vehicle Data and Usage</h3>
+                            </div>
+                            <button class="hide-btn">Hide ↓</button>
+                        </div>
+
+                        <div class="vehicle-form-content" id="vehicleFormContent">
+                            <!-- Transmission Type -->
+                            <div class="dual-input-row">
+                                <div class="input-group">
+                                    <label>Transmission type</label>
+                                    <div class="toggle-buttons">
+                                        <button class="toggle-btn active" onclick="selectTransmission(this, 'manual')">Manual</button>
+                                        <button class="toggle-btn" onclick="selectTransmission(this, 'automatic')">Automatic</button>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Engine Size (CC)</label>
+                                    <div class="engine-size-control">
+                                        <span class="cc-label">CC</span>
+                                        <input type="number" id="engineSize" value="800" min="0">
+                                        <button class="engine-btn" onclick="decreaseEngine()">−</button>
+                                        <button class="engine-btn" onclick="increaseEngine()">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Number of kilometers -->
+                            <div class="input-group">
+                                <label>Number of kilometers during the year</label>
+                                <div class="toggle-buttons">
+                                    <button class="toggle-btn active" onclick="selectKm(this, 'less')">Less Than 20,000 Km's</button>
+                                    <button class="toggle-btn" onclick="selectKm(this, 'above')">Above 20,000 Km's</button>
+                                </div>
+                            </div>
+
+                            <!-- Driving City and City of Work -->
+                            <div class="dual-input-row">
+                                <div class="input-group">
+                                    <label>Select Driving City</label>
+                                    <div class="input-wrapper">
+                                        <select class="city-select">
+                                            <option value="algeria">🇩🇿 Algeria</option>
+                                            <option value="riyadh">🇸🇦 Riyadh</option>
+                                            <option value="jeddah">🇸🇦 Jeddah</option>
+                                        </select>
+                                       <div class="info-icon"> ↓ </div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>City of Work</label>
+                                    <div class="input-wrapper">
+                                        <select class="city-select">
+                                            <option value="algeria">🇩🇿 Algeria</option>
+                                            <option value="riyadh">🇸🇦 Riyadh</option>
+                                            <option value="jeddah">🇸🇦 Jeddah</option>
+                                        </select>
+                                      <div class="info-icon"> ↓ </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Coverage for any driver -->
+                            <div class="input-group">
+                                <label>Coverage for any driver of any age</label>
+                                <div class="toggle-buttons">
+                                    <button class="toggle-btn active" onclick="selectCoverage(this, '25')">Any Driver Age 25 & Above</button>
+                                    <button class="toggle-btn" onclick="selectCoverage(this, '21')">Any Driver Age 21 & Above</button>
+                                </div>
+                            </div>
+
+                            <!-- Modifications and Trailer -->
+                            <div class="dual-input-row">
+                                <div class="input-group">
+                                    <label>Any modifications to the vehicle?</label>
+                                    <div class="toggle-buttons">
+                                        <button class="toggle-btn active" onclick="selectModification(this, 'yes')">Yes</button>
+                                        <button class="toggle-btn" onclick="selectModification(this, 'no')">No</button>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Trailer included with the vehicle?</label>
+                                    <div class="toggle-buttons">
+                                        <button class="toggle-btn active" onclick="selectTrailer(this, 'yes')">Yes</button>
+                                        <button class="toggle-btn" onclick="selectTrailer(this, 'no')">No</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Want to renew insurance -->
+                            <div class="input-group">
+                                <label>Want to renew your insurance?</label>
+                                <div class="toggle-buttons">
+                                    <button class="toggle-btn active" onclick="selectRenew(this, 'yes')">Yes</button>
+                                    <button class="toggle-btn" onclick="selectRenew(this, 'no')">No</button>
+                                </div>
+                            </div>
+
+                           <div class="checkbox-group" style="margin-top: 20px;">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="showOtherDetails" onchange="toggleSafetyFeatures()">
+                                    <div class="additional-data-text">
+                                        <strong>Show Other Details</strong>
+                                        <small>(Other details about the vehicle safety features)</small>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    <!-- - Safety Features Section --> 
+                        <div id="safetyFeaturesSection" class="hidden">
+                            <div class="section-header" style="margin-top: 30px;">
+                                <div class="section-title">
+                                  <img src="Frame (7).png" alt="Safety Icon" class="section-icon">
+                                    Safety Features Availability
+                                </div>
+                                 <button class="hide-btn2">Hide ↓</button>
+                            </div>
+
+                        <div class="section-content">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>ABS System</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label>Fire extinguisher</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Anti-theft alarm</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label>Speed control</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Rear sensors</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label>Front Camera</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Rear Camera</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label>Automatic Brakes</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Adaptive Cruise Control</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label>Front Sensors</label>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" onclick="selectToggle(this)">Yes</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this)">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <button class="next-btn" onclick="goToInsuranceDetails()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verify Identity Modal -->
+    <div id="verifyModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="modal-title">Verify Your Identity</h2>
+            <p class="modal-subtitle">Secure login via National ID or Residence Number</p>
+
+            <div class="modal-field">
+                <label for="idNumber">Enter Number</label>
+                <input type="text" id="idNumber" placeholder="">
+            </div>
+
+            <div class="modal-field">
+                <label>Re-Enter Captcha</label>
+                <div class="captcha-field">
+                    <span class="captcha-image" id="captchaText">NF7Nz</span>
+                    <input type="text" class="captcha-input" placeholder="Enter Here" id="captchaInput">
+                    <span class="captcha-refresh" onclick="refreshCaptcha()"><img src="Frame (11).png" alt="Refresh" class="refresh-icon"></span>
+                </div>
+            </div>
+
+            <button class="login-btn" onclick="verifyIdentity()">Login</button>
+
+            <p class="create-account">
+                Don't have an account? <a href="#" onclick="createAccount()">Create Account</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- OTP Verification Modal -->
+    <div id="otpModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="modal-title">Enter Code</h2>
+            <p class="modal-subtitle">
+                We sent a verification code to <span class="phone-number" id="displayPhone">+966 4252 1232</span>
+            </p>
+
+            <div class="otp-boxes">
+                <input type="text" maxlength="1" class="otp-box" id="otp1" onkeyup="moveToNext(this, 'otp2')" onkeydown="moveToPrev(this, null, event)">
+                <input type="text" maxlength="1" class="otp-box" id="otp2" onkeyup="moveToNext(this, 'otp3')" onkeydown="moveToPrev(this, 'otp1', event)">
+                <input type="text" maxlength="1" class="otp-box" id="otp3" onkeyup="moveToNext(this, 'otp4')" onkeydown="moveToPrev(this, 'otp2', event)">
+                <input type="text" maxlength="1" class="otp-box" id="otp4" onkeyup="moveToNext(this, null)" onkeydown="moveToPrev(this, 'otp3', event)">
+            </div>
+
+            <p style="text-align: center; font-size: 14px; color: #666; margin-top: 20px;">
+                Wrong phone number? <span class="edit-link" onclick="editPhoneNumber()">Edit</span>
+            </p>
+
+            <div class="resend-timer">
+                Send code again in <span id="timerDisplay">00:29</span>
+            </div>
+        </div>
+    </div>
+    <!-- Insurance Details Page -->
+        <div id="insurance-details-page" class="page-content">
+            <div class="form-container">
+                <div class="form-card">
+                    <div class="section-header" style="margin-top: 0;">
+                        <div class="section-title">
+                            <img src="Frame (9).png" alt="Insurance Icon" class="section-icon">
+                            Insurance Details
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="workshopRepair" checked>
+                            <span>Do you want to get your car repaired at Accredits Workshop?</span>
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="startDate">Insurance Start Date</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="startDate" placeholder="For example : 10-02-2002">
+                                <span class="info-icon">📅</span>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="carValue">Estimated Car Value</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="carValue" placeholder="For example : 3000">
+                                <span class="info-icon"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header">
+                        <div class="section-title">
+                            <img src="Frame (8).png" alt="Insurance Icon" class="section-icon">
+                            Drivers
+                        </div>
+                    </div>
+
+                    <div class="driver-cards">
+                        <div class="driver-card" id="driverCardsContainer">
+                            <div class="driver-header">
+                                <span class="driver-title">Main Driver</span>
+                                <span class="driver-id">ID-1012345678</span>
+                            </div>
+                            <div class="driver-location">KINGDOM OF SAUDI ARABIA</div>
+                            <div class="driver-info">
+                                <div class="driver-info-item">
+                                    <span class="driver-info-label">Name</span>
+                                    <span class="driver-info-value">ABU MOHANNED</span>
+                                </div>
+                                <div class="driver-info-item">
+                                    <span class="driver-info-label">Leadership</span>
+                                    <span class="driver-info-value leadership-score">100<span class="score-total">/100</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="add-driver-card" onclick="addDriver()">
+                            <div class="add-driver-content">
+                                <div class="add-icon">+</div>
+                                <span>Add Additional Driver</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="transferOwnership" checked>
+                            <span>Insurance required for transfer of ownership?</span>
+                        </label>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="ownerId">New Owners ID Number</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="ownerId" placeholder="For example : 123456789">
+                            <img src="Frame (10).png" alt="Info" class="info-icon">
+                        </div>
+                    </div>
+
+                    <button class="next-btn" onclick="submitInsuranceForm()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Driver Modal -->
+    <div id="addDriverModal" class="modal-overlay">
+        <div class="modal-content add-driver-modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">👤</div>
+                <h2 class="modal-header-title">Add Driver</h2>
+            </div>
+
+            <div class="driver-checkbox-card">
+                <input type="checkbox" id="driverAuthorized" checked>
+                <span>This Driver is Authorized</span>
+            </div>
+
+
+            <div class="driver-form-field">
+                <input type="text" id="driverSerial" placeholder="Serial Number">
+               <div class="info-icon">i</div>
+            </div>
+
+            <div class="driver-form-row" style="margin-top: 15px;">
+                <div class="driver-form-field">
+                    <input type="text" id="birthMonth" placeholder="Birth Month">
+                    <span class="input-icon">📅</span>
+                </div>
+                <div class="driver-form-field">
+                    <input type="text" id="birthYear" placeholder="Birth Year">
+                    <span class="input-icon">📅</span>
+                </div>
+            </div>
+
+            <div class="leadership-slider-container">
+                <label class="leadership-label">Leadership Ratio</label>
+                <div class="slider-wrapper">
+                    <input type="range" min="10" max="100" value="20" class="leadership-slider" id="leadershipSlider">
+                    <div class="slider-labels">
+                        <span>10%</span>
+                        <span>20%</span>
+                        <span>40%</span>
+                        <span>60%</span>
+                        <span>80%</span>
+                        <span>100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="driver-checkbox-card">
+                <input type="checkbox" id="showDriverDetails" onchange="toggleDriverAdditionalDetails()">
+                <span>Show Additional Details</span>
+            </div>
+
+            <div id="driverAdditionalDetails" class="additional-details-section hidden">
+                <div class="driver-form-row">
+                    <div class="driver-form-field">
+                        <input type="text" id="kinship" placeholder="Kinship">
+                        <span class="input-icon">📅</span>
+                    </div>
+                    <div class="driver-form-field">
+                        <input type="text" id="education" placeholder="Education">
+                        <span class="input-icon">📅</span>
+                    </div>
+                </div>
+
+                <div class="driver-form-row">
+                    <div class="counter-field">
+                        <label>Childs Under 16Y</label>
+                        <div class="counter-control">
+                            <button onclick="decreaseDriverCounter('childrenCount')">−</button>
+                            <input type="text" id="childrenCount" value="1" readonly>
+                            <button onclick="increaseDriverCounter('childrenCount')">+</button>
+                        </div>
+                    </div>
+                    <div class="counter-field">
+                        <label>No. of Accidents</label>
+                        <div class="counter-control">
+                            <button onclick="decreaseDriverCounter('accidentsCount')">−</button>
+                            <input type="text" id="accidentsCount" value="0" readonly>
+                            <button onclick="increaseDriverCounter('accidentsCount')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="driver-health-checkbox">
+                    <input type="checkbox" id="healthCondition">
+                    <label for="healthCondition">Driver have any health condition or license restriction?</label>
+                </div>
+
+                <div class="driver-health-checkbox">
+                    <input type="checkbox" id="driverViolations">
+                    <label for="driverViolations">Driver Violations?</label>
+                </div>
+            </div>
+
+            <button class="save-driver-btn" onclick="saveDriver()">Save & Close</button>
+        </div>
+    </div>
+
+
+
+
+   <script src="form(1).js" defer></script>
+</body>
+</html>
