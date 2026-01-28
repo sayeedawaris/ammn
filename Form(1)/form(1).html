@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMMN Car Insurance</title>
-    <link rel="stylesheet" href="form(1).css">
+    <link rel="stylesheet" href="../css/form(1).css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="Frame 30.png" alt="AMMN Logo" class="logo-image">
+                <img src="../assets/Frame 30.png" alt="AMMN Logo" class="logo-image" style="color:#666">
             </div>
             <div class="nav">
                 <a href="#">Our panic</a>
@@ -18,47 +18,45 @@
                 <a href="#">Contact us</a>
             </div>
             <div style="display: flex; align-items: center; gap: 20px;">
-                    <img src ="Language.png" alt="saudi-flag" class="saudi-icon"></span>
-                    <img src ="Login.png" alt="sme-login" class="sme-login"></span>
+                    <img src ="../assets/Language.png" alt="saudi-flag" class="saudi-icon"></span>
+                    <img src ="../assets/Login.png" alt="sme-login" class="sme-login"></span>
             </div>
         </div>
 
         <div class="tabs">
             <div class="tab active" data-page="car-details">
-               <img src="Frame.png" alt="Car Icon" class="tab-icon">
+               <img src="../assets/Frame.png" alt="Car Icon" class="tab-icon">
                 Car Details
             </div>
             <div class="tab" data-page="insurance-details">
-                <img src="Frame (1).png" alt="Car Icon" class="tab-icon">
+                <img src="../assets/Frame (1).png" alt="Car Icon" class="tab-icon">
                 Insurance Details
             </div>
             <div class="tab" data-page="offers">
-               <img src="Frame (2).png" alt="Offers Icon" class="tab-icon">
+               <img src="../assets/Frame (2).png" alt="Offers Icon" class="tab-icon">
                 Offers
             </div>
             <div class="tab" data-page="quotes">
-                <img src="Frame (3).png" alt="Quotes Icon" class="tab-icon">
+                <img src="../assets/Frame (3).png" alt="Quotes Icon" class="tab-icon">
                 Quotes List
             </div>
             <div class="tab" data-page="quote-modal">
-                <img src="Frame (4).png" alt="Quote Details Icon" class="tab-icon">
+                <img src="../assets/Frame (4).png" alt="Quote Details Icon" class="tab-icon">
                 Quote Details Model
             </div>
             <div class="tab" data-page="checkout">
-                <img src="Frame (5).png" alt="Checkout Icon" class="tab-icon">
+                <img src="../assets/Frame (5).png" alt="Checkout Icon" class="tab-icon">
                 Checkout & Payment
             </div>
         </div>
 
         <div class="content">
             <div class="left-logo">
-            <!-- Left Ellipse Image -->
-            <img src="Ellipse 768 (1).png" alt="Ellipse" class="left-ellipse">
+            <img src="../assets/Ellipse 768 (1).png" alt="Ellipse" class="left-logo">
             </div>
-            <!-- Right Logo Image -->
            <div class="right-logo">
-           <img src="Vector 3 (1).png" alt="Logo" class="right-logo">
-        </div>
+           <img src="../assets/Vector 3 (1).png" alt="Logo" class="right-logo">
+        </div> 
             
            <div id="car-details-page" class="page-content active">
             <div class="form-container">
@@ -124,19 +122,16 @@
                             </div>
                         </label>
                     </div>
-
-                    <!-- Vehicle Data and Usage Section -->
                     <div id="vehicleDataSection" class="additional-sections">
                         <div class="section-header">
                             <div class="section-title">
-                                <img src="Frame (6).png" alt="Vehicle Icon" class="section-icon">
+                                <img src="../assets/Frame (6).png" alt="Vehicle Icon" class="section-icon">
                                 <h3>Vehicle Data and Usage</h3>
                             </div>
                             <button class="hide-btn">Hide ↓</button>
                         </div>
 
                         <div class="vehicle-form-content" id="vehicleFormContent">
-                            <!-- Transmission Type -->
                             <div class="dual-input-row">
                                 <div class="input-group">
                                     <label>Transmission type</label>
@@ -156,8 +151,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Number of kilometers -->
                             <div class="input-group">
                                 <label>Number of kilometers during the year</label>
                                 <div class="toggle-buttons">
@@ -165,8 +158,6 @@
                                     <button class="toggle-btn" onclick="selectKm(this, 'above')">Above 20,000 Km's</button>
                                 </div>
                             </div>
-
-                            <!-- Driving City and City of Work -->
                             <div class="dual-input-row">
                                 <div class="input-group">
                                     <label>Select Driving City</label>
@@ -192,8 +183,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Coverage for any driver -->
                             <div class="input-group">
                                 <label>Coverage for any driver of any age</label>
                                 <div class="toggle-buttons">
@@ -202,7 +191,6 @@
                                 </div>
                             </div>
 
-                            <!-- Modifications and Trailer -->
                             <div class="dual-input-row">
                                 <div class="input-group">
                                     <label>Any modifications to the vehicle?</label>
@@ -221,7 +209,6 @@
                                 </div>
                             </div>
 
-                            <!-- Want to renew insurance -->
                             <div class="input-group">
                                 <label>Want to renew your insurance?</label>
                                 <div class="toggle-buttons">
@@ -240,11 +227,10 @@
                                 </label>
                             </div>
                         </div>
-                    <!-- - Safety Features Section --> 
                         <div id="safetyFeaturesSection" class="hidden">
                             <div class="section-header" style="margin-top: 30px;">
                                 <div class="section-title">
-                                  <img src="Frame (7).png" alt="Safety Icon" class="section-icon">
+                                  <img src="../assets/Frame (7).png" alt="Safety Icon" class="section-icon">
                                     Safety Features Availability
                                 </div>
                                  <button class="hide-btn2">Hide ↓</button>
@@ -343,8 +329,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Verify Identity Modal -->
     <div id="verifyModal" class="modal-overlay">
         <div class="modal-content">
             <h2 class="modal-title">Verify Your Identity</h2>
@@ -360,7 +344,7 @@
                 <div class="captcha-field">
                     <span class="captcha-image" id="captchaText">NF7Nz</span>
                     <input type="text" class="captcha-input" placeholder="Enter Here" id="captchaInput">
-                    <span class="captcha-refresh" onclick="refreshCaptcha()"><img src="Frame (11).png" alt="Refresh" class="refresh-icon"></span>
+                    <span class="captcha-refresh" onclick="refreshCaptcha()"><img src="../assets/Frame (11).png" alt="Refresh" class="refresh-icon"></span>
                 </div>
             </div>
 
@@ -371,8 +355,6 @@
             </p>
         </div>
     </div>
-
-    <!-- OTP Verification Modal -->
     <div id="otpModal" class="modal-overlay">
         <div class="modal-content">
             <h2 class="modal-title">Enter Code</h2>
@@ -396,13 +378,12 @@
             </div>
         </div>
     </div>
-    <!-- Insurance Details Page -->
         <div id="insurance-details-page" class="page-content">
             <div class="form-container">
                 <div class="form-card">
                     <div class="section-header" style="margin-top: 0;">
                         <div class="section-title">
-                            <img src="Frame (9).png" alt="Insurance Icon" class="section-icon">
+                            <img src="../assets/Frame (9).png" alt="Insurance Icon" class="section-icon">
                             Insurance Details
                         </div>
                     </div>
@@ -419,21 +400,22 @@
                             <label for="startDate">Insurance Start Date</label>
                             <div class="input-wrapper">
                                 <input type="text" id="startDate" placeholder="For example : 10-02-2002">
-                                <span class="info-icon">📅</span>
+                                <img src="../assets/Frame (12).png" alt="Info" class="info-icon">
+                            </div>
                             </div>
                         </div>
                         <div class="form-field">
                             <label for="carValue">Estimated Car Value</label>
                             <div class="input-wrapper">
                                 <input type="text" id="carValue" placeholder="For example : 3000">
-                                <span class="info-icon"></span>
+                                <img src="../assets/Frame 1984078063.png" alt="Info" class="info-icon">
                             </div>
                         </div>
                     </div>
 
                     <div class="section-header">
                         <div class="section-title">
-                            <img src="Frame (8).png" alt="Insurance Icon" class="section-icon">
+                            <img src="../assets/Frame (8).png" alt="Insurance Icon" class="section-icon">
                             Drivers
                         </div>
                     </div>
@@ -476,7 +458,7 @@
                         <label for="ownerId">New Owners ID Number</label>
                         <div class="input-wrapper">
                             <input type="text" id="ownerId" placeholder="For example : 123456789">
-                            <img src="Frame (10).png" alt="Info" class="info-icon">
+                            <img src="../assets/Frame (10).png" alt="Info" class="info-icon">
                         </div>
                     </div>
 
@@ -485,11 +467,83 @@
             </div>
         </div>
     </div>
-    <!-- Add Driver Modal -->
+
+    <div id="offers-page" class="page-content active">
+            <div class="offers-container">
+                <div class="info-section">
+                    <div class="section-title-offers">Insurance Information</div>
+                    <div class="info-grid-offers">
+                        <div class="info-item-offers">
+                            <div class="info-label-offers">Starting Date</div>
+                            <div class="info-value-offers">05 Jan 2026</div>
+                        </div>
+                        <div class="info-item-offers">
+                            <div class="info-label-offers">Insurance ID</div>
+                            <div class="info-value-offers">1103736154</div>
+                        </div>
+                        <div class="info-item-offers">
+                            <div class="info-label-offers">Sequence Number</div>
+                            <div class="info-value-offers">537519058</div>
+                        </div>
+                        <div class="info-item-offers">
+                            <div class="info-label-offers">Maker</div>
+                            <div class="info-value-offers">AMMNINS</div>
+                        </div>
+                    </div>
+
+                    <div class="section-title-offers" style="margin-top: 25px;">Vehicle Information</div>
+                    <div class="info-grid-offers">
+                        <div class="info-item-offers">
+                            <div class="info-label-offers">Name</div>
+                            <div class="info-value-offers">Abu Mohammed</div>
+                        </div>
+                        <div class="info-item-offers">
+                            <div class="info-label-offers">Address</div>
+                            <div class="info-value-offers">Al Hayat Road, Sector 47, 63221</div>
+                        </div>
+                        <div class="info-item-offers">
+                            <div class="info-label-offers">Model Number</div>
+                            <div class="info-value-offers">2018</div>
+                        </div>
+                        <div class="info-item-offers">
+                            <div class="info-label-offers">Plate Number</div>
+                            <div class="info-value-offers">5326</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offers-header">
+                    <img src="../assets/Frame (16).png" alt="Offers Icon" class="offers-icon">
+                    <span>We Found <span class="offers-count">43</span> Best Offers For You</span>
+                </div>
+
+                <div class="search-filter">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="offerSearch" placeholder="Search Offers">
+                    </div>
+                    <button class="filter-btn">
+                        <span>⚙️</span>
+                        <span>Apply Filter</span>
+                    </button>
+                    <div class="view-toggle">
+                       <img src="../assets/Frame (17).png" alt="Grid View" class="grid-icon active" onclick="setGridView()">
+                      <img src="../assets/Frame (18).png" alt="List View" class="list-icon" onclick="setListView()">
+                    </div>
+                </div>
+
+                <div class="offers-list" id="offersList">
+                </div>
+
+                <button class="next-btn-offers" onclick="goToNextPage()">Next →</button>
+            </div>
+        </div>
+    </div>
+
     <div id="addDriverModal" class="modal-overlay">
         <div class="modal-content add-driver-modal-content">
             <div class="modal-header">
-                <div class="modal-icon">👤</div>
+                <img src="../assets/Frame (14).png" alt="Close" class="close-icon" onclick="closeAddDriverModal()">
                 <h2 class="modal-header-title">Add Driver</h2>
             </div>
 
@@ -507,11 +561,11 @@
             <div class="driver-form-row" style="margin-top: 15px;">
                 <div class="driver-form-field">
                     <input type="text" id="birthMonth" placeholder="Birth Month">
-                    <span class="input-icon">📅</span>
+                    <img src="../assets/Frame (15).png" alt="Info" class="info-icon">
                 </div>
                 <div class="driver-form-field">
                     <input type="text" id="birthYear" placeholder="Birth Year">
-                    <span class="input-icon">📅</span>
+                    <img src="../assets/Frame (15).png" alt="Info" class="info-icon">
                 </div>
             </div>
 
@@ -519,7 +573,7 @@
                 <label class="leadership-label">Leadership Ratio</label>
                 <div class="slider-wrapper">
                     <input type="range" min="10" max="100" value="20" class="leadership-slider" id="leadershipSlider">
-                    <div class="slider-labels">
+                    <div class="slider-labels" >
                         <span>10%</span>
                         <span>20%</span>
                         <span>40%</span>
@@ -584,6 +638,6 @@
 
 
 
-   <script src="form(1).js" defer></script>
+   <script src="../js/form(1).js" defer></script>
 </body>
 </html>
