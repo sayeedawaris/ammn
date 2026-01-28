@@ -1,4 +1,4 @@
-// Tab switching functionality
+
 document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", function () {
     const page = this.getAttribute("data-page");
@@ -7,23 +7,37 @@ document.querySelectorAll(".tab").forEach((tab) => {
 });
 
 function switchToPage(pageName) {
-  document
-    .querySelectorAll(".tab")
-    .forEach((t) => t.classList.remove("active"));
+
+ 
+   document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+
   document.querySelector(`[data-page="${pageName}"]`).classList.add("active");
   document
     .querySelectorAll(".page-content")
     .forEach((p) => p.classList.remove("active"));
 
-  // Show selected page
+
   if (pageName === "car-details") {
     document.getElementById("car-details-page").classList.add("active");
   } else if (pageName === "insurance-details") {
     document.getElementById("insurance-details-page").classList.add("active");
   }
+  else if (pageName === "insurance-details") {
+    document.getElementById("insurance-details-page").classList.add("active");
+  } else if (pageName === "offers") {
+    document.getElementById("offers-page").classList.add("active");
+    initializeOffersPage(); 
+  } else if (pageName === "quotes") {
+    document.getElementById("quotes-page").classList.add("active");
+  } else if (pageName === "quote-modal") {
+    document.getElementById("quote-modal-page").classList.add("active");
+  } else if (pageName === "checkout") {
+    document.getElementById("checkout-page").classList.add("active");
+  }
 }
 
-// Toggle Year of Manufacture field
+
+
 function toggleYearField() {
   const checkbox = document.getElementById("customsNumber");
   const yearField = document.getElementById("yearOfManufacture");
@@ -35,7 +49,7 @@ function toggleYearField() {
   }
 }
 
-// Toggle Additional Sections
+
 function toggleAdditionalSections() {
   const checkbox = document.getElementById("additionalData");
   const sections = document.getElementById("vehicleDataSection");
@@ -47,7 +61,7 @@ function toggleAdditionalSections() {
   }
 }
 
-// Toggle Safety Features Section
+
 function toggleSafetyFeatures() {
   const checkbox = document.getElementById("showOtherDetails");
   const section = document.getElementById("safetyFeaturesSection");
@@ -59,7 +73,7 @@ function toggleSafetyFeatures() {
   }
 }
 
-// Toggle button selection
+
 function selectToggle(button) {
   const group = button.parentElement;
   const buttons = group.querySelectorAll(".toggle-btn");
@@ -67,7 +81,7 @@ function selectToggle(button) {
   button.classList.add("active");
 }
 
-// Counter functions
+
 function increaseCounter(id) {
   const input = document.getElementById(id);
   let value = parseInt(input.value);
@@ -82,9 +96,9 @@ function decreaseCounter(id) {
   }
 }
 
-// Navigate to Insurance Details page
+
 function goToInsuranceDetails() {
-  // Save car details data
+
   const carData = {
     customsNumber: document.getElementById("customsNumber").checked,
     serialNumber: document.getElementById("serialNumber").value,
@@ -111,7 +125,7 @@ document.getElementById("verifyModal").addEventListener("click", function (e) {
   }
 });
 
-// random captcha
+
 function generateCaptcha() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789";
   let captcha = "";
@@ -121,14 +135,14 @@ function generateCaptcha() {
   return captcha;
 }
 
-// Refresh captcha
+
 function refreshCaptcha() {
   const newCaptcha = generateCaptcha();
   document.getElementById("captchaText").textContent = newCaptcha;
   document.getElementById("captchaInput").value = "";
 }
 
-// Verify identity
+
 function verifyIdentity() {
   const idNumber = document.getElementById("idNumber").value;
   const captchaInput = document.getElementById("captchaInput").value;
@@ -150,54 +164,54 @@ function verifyIdentity() {
     return;
   }
 
-  // Verification successful
+ 
   console.log("Identity verified for ID:", idNumber);
   hideVerificationModal();
 
-  // Show OTP modal
+
   showOTPModal(idNumber);
 }
 
-// Show OTP modal
+
 function showOTPModal(phoneNumber) {
-  // Format and display phone number (you can customize this)
+
   const formattedPhone = phoneNumber || "+966 4252 1232";
   document.getElementById("displayPhone").textContent = formattedPhone;
 
-  // Clear OTP inputs
+
   for (let i = 1; i <= 4; i++) {
     document.getElementById("otp" + i).value = "";
   }
 
-  // Show modal
+
   document.getElementById("otpModal").classList.add("show");
 
-  // Focus first input
+
   document.getElementById("otp1").focus();
 
-  // Start countdown timer
+ 
   startOTPTimer();
 }
 
-// Hide OTP modal
+
 function hideOTPModal() {
   document.getElementById("otpModal").classList.remove("show");
 }
 
-// Close OTP modal when clicking outside
+
 document.getElementById("otpModal").addEventListener("click", function (e) {
   if (e.target === this) {
     hideOTPModal();
   }
 });
 
-// OTP input navigation
+
 function moveToNext(current, nextId) {
   if (current.value.length === 1 && nextId) {
     document.getElementById(nextId).focus();
   }
 
-  // Check if all OTP boxes are filled
+ 
   checkOTPComplete();
 }
 
@@ -207,7 +221,7 @@ function moveToPrev(current, prevId, event) {
   }
 }
 
-// Check if OTP is complete
+
 function checkOTPComplete() {
   const otp1 = document.getElementById("otp1").value;
   const otp2 = document.getElementById("otp2").value;
@@ -218,38 +232,37 @@ function checkOTPComplete() {
     const fullOTP = otp1 + otp2 + otp3 + otp4;
     console.log("OTP Entered:", fullOTP);
 
-    // Automatically verify after 1 second
+
     setTimeout(() => {
       verifyOTP(fullOTP);
     }, 1000);
   }
 }
 
-// Verify OTP
+
 function verifyOTP(otp) {
-  // In a real app, this would verify with backend
+
   console.log("Verifying OTP:", otp);
   alert("OTP Verified Successfully!");
   hideOTPModal();
 
-  // Navigate to Insurance Details page
   switchToPage("insurance-details");
   window.scrollTo(0, 0);
 }
 
-// Edit phone number
+
 function editPhoneNumber() {
   hideOTPModal();
   showVerificationModal();
 }
 
-// OTP Timer
+
 let otpTimer;
 function startOTPTimer() {
   let timeLeft = 29;
   const timerDisplay = document.getElementById("timerDisplay");
 
-  // Clear any existing timer
+
   if (otpTimer) {
     clearInterval(otpTimer);
   }
@@ -269,22 +282,21 @@ function startOTPTimer() {
   }, 1000);
 }
 
-// Resend OTP
+
 function resendOTP() {
   alert("A new verification code has been sent!");
   startOTPTimer();
 }
-// Add driver function
+
 function addDriver() {
   document.getElementById("addDriverModal").classList.add("show");
 }
 
-// Hide add driver modal
+
 function hideAddDriverModal() {
   document.getElementById("addDriverModal").classList.remove("show");
 }
 
-// Close modal when clicking outside
 document
   .getElementById("addDriverModal")
   .addEventListener("click", function (e) {
@@ -293,7 +305,7 @@ document
     }
   });
 
-// Toggle driver additional details
+
 function toggleDriverAdditionalDetails() {
   const checkbox = document.getElementById("showDriverDetails");
   const details = document.getElementById("driverAdditionalDetails");
@@ -305,7 +317,6 @@ function toggleDriverAdditionalDetails() {
   }
 }
 
-// Driver counter functions
 function increaseDriverCounter(id) {
   const input = document.getElementById(id);
   let value = parseInt(input.value);
@@ -320,7 +331,7 @@ function decreaseDriverCounter(id) {
   }
 }
 
-// Save driver
+
 function saveDriver() {
   const driverData = {
     authorized: document.getElementById("driverAuthorized").checked,
@@ -330,7 +341,7 @@ function saveDriver() {
     leadershipRatio: document.getElementById("leadershipSlider").value,
   };
 
-  // Validate required fields
+
   if (!driverData.serialNumber) {
     alert("Please enter Serial Number");
     return;
@@ -354,12 +365,12 @@ function saveDriver() {
   resetAddDriverForm();
 }
 
-// Add driver card to Insurance Details page
+
 function addDriverCard(driverData) {
   const driverCardsContainer = document.getElementById("driverCardsContainer");
   const addDriverCard = driverCardsContainer.querySelector(".add-driver-card");
 
-  // Create new driver card
+
   const newDriverCard = document.createElement("div");
   newDriverCard.className = "driver-card";
   newDriverCard.innerHTML = `
@@ -380,10 +391,10 @@ function addDriverCard(driverData) {
                 </div>
             `;
 
-  // Insert before the "Add Driver" card
+
   driverCardsContainer.insertBefore(newDriverCard, addDriverCard);
 }
-// Hide add driver modal
+
 function hideAddDriverModal() {
   document.getElementById("addDriverModal").classList.remove("show");
 }
@@ -397,7 +408,7 @@ function editDriver(button) {
   alert("Edit driver with ID: " + driverId);
 }
 
-// Remove driver function (optional)
+
 function removeDriver(button) {
   const card = button.closest(".driver-card");
   if (confirm("Are you sure you want to remove this driver?")) {
@@ -405,7 +416,7 @@ function removeDriver(button) {
   }
 }
 
-// Reset Add Driver form
+
 function resetAddDriverForm() {
   document.getElementById("driverAuthorized").checked = true;
   document.getElementById("driverSerial").value = "";
@@ -415,7 +426,7 @@ function resetAddDriverForm() {
   document.getElementById("showDriverDetails").checked = false;
   document.getElementById("driverAdditionalDetails").classList.add("hidden");
 
-  // Reset additional fields
+
   document.getElementById("kinship").value = "";
   document.getElementById("education").value = "";
   document.getElementById("childrenCount").value = 1;
@@ -424,7 +435,7 @@ function resetAddDriverForm() {
   document.getElementById("driverViolations").checked = false;
 }
 
-// Submit Insurance form
+
 function submitInsuranceForm() {
   const insuranceData = {
     workshopRepair: document.getElementById("workshopRepair").checked,
@@ -435,12 +446,195 @@ function submitInsuranceForm() {
   };
 
   console.log("Insurance Details:", insuranceData);
-  alert("Insurance form submitted! Check console for details.");
+  alert("");
 }
-
-// Info icon tooltip
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("info-icon")) {
-    alert("Additional information about this field.");
+    alert("");
   }
 });
+function initializeOffersPage() {
+  generateOfferCards();
+  setupOffersSearch();
+  setupAddonCheckboxes();
+}
+
+function generateOfferCards() {
+  const offersList = document.getElementById("offersList");
+  if (!offersList) return;
+
+  const offersData = [
+    {
+      id: 1,
+      company: "Cooperative Insurance Company",
+      price: 2562.86,
+      addons: [
+        { id: "replacement1", name: "Replacement Car", price: 200 },
+        { id: "roadside1", name: "Roadside Assistance", price: 35 },
+      ],
+    },
+    {
+      id: 2,
+      company: "Cooperative Insurance Company",
+      price: 2562.86,
+      addons: [
+        { id: "replacement2", name: "Replacement Car", price: 200 },
+        { id: "roadside2", name: "Roadside Assistance", price: 35 },
+      ],
+    },
+    {
+      id: 3,
+      company: "Cooperative Insurance Company",
+      price: 2562.86,
+      addons: [
+        { id: "replacement3", name: "Replacement Car", price: 200 },
+        { id: "roadside3", name: "Roadside Assistance", price: 35 },
+      ],
+    },
+    {
+      id: 4,
+      company: "Cooperative Insurance Company",
+      price: 2562.86,
+      addons: [
+        { id: "replacement4", name: "Replacement Car", price: 200 },
+        { id: "roadside4", name: "Roadside Assistance", price: 35 },
+      ],
+    },
+  ];
+
+  offersList.innerHTML = "";
+
+  offersData.forEach((offer) => {
+    const card = createOfferCard(offer);
+    offersList.appendChild(card);
+  });
+}
+
+function createOfferCard(offer) {
+  const card = document.createElement("div");
+  card.className = "offer-card";
+  card.dataset.basePrice = offer.price;
+
+  const addonsHTML = offer.addons
+    .map(
+      (addon) => `
+        <div class="addon-item">
+            <input type="checkbox" id="${addon.id}" data-price="${addon.price}" onchange="updateOfferPrice(this)">
+            <label for="${addon.id}" class="addon-label">${addon.name}</label>
+            <span class="addon-price">₪ ${addon.price}</span>
+        </div>
+    `
+    )
+    .join("");
+
+  card.innerHTML = `
+        <div class="company-logo">
+            مربى<br>nomi
+        </div>
+        <div class="offer-content">
+            <div class="company-name">${offer.company}</div>
+            <a href="#" class="terms-link">Terms & Conditions</a>
+            
+            <div class="coverage-badge">
+                <span class="check-icon">✓</span>
+                <span>Insurance covers free of charge</span>
+            </div>
+            
+            <div class="coverage-text">
+                The largest workshop network in the Kingdom, speed in settling claims, and international coverage
+            </div>
+            
+            <div class="addons-section">
+                <div class="addons-title">
+                    ⊕ Paid Add-ons
+                </div>
+                ${addonsHTML}
+            </div>
+        </div>
+        <div class="offer-pricing">
+            <div class="pricing-header">
+                <span class="pricing-label">Payable Amount</span>
+                <a href="#" class="pricing-details">Pricing Details <img src=""</a>
+            </div>
+            <div class="price-amount">
+                <span class="currency">₪</span> <span class="price-value">${offer.price.toFixed(2)}</span>
+            </div>
+            <div class="endurance-section">
+                <div class="endurance-label">Endurance Value</div>
+                <select class="endurance-select">
+                    <option>Select Value</option>
+                    <option>1000</option>
+                    <option>2000</option>
+                    <option>3000</option>
+                </select>
+            </div>
+            <button class="buy-btn" onclick="buyOffer(this)">
+                Buy Now →
+            </button>
+        </div>
+    `;
+
+  return card;
+}
+
+function updateOfferPrice(checkbox) {
+  const card = checkbox.closest(".offer-card");
+  const basePrice = parseFloat(card.dataset.basePrice);
+  const priceValueElement = card.querySelector(".price-value");
+
+  let totalPrice = basePrice;
+
+  const checkedAddons = card.querySelectorAll(
+    '.addon-item input[type="checkbox"]:checked'
+  );
+  checkedAddons.forEach((addon) => {
+    const addonPrice = parseFloat(addon.dataset.price);
+    totalPrice += addonPrice;
+  });
+
+  priceValueElement.textContent = totalPrice.toFixed(2);
+}
+
+function setupOffersSearch() {
+  const searchInput = document.getElementById("offerSearch");
+  if (!searchInput) return;
+
+  searchInput.addEventListener("input", function (e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const offers = document.querySelectorAll(".offer-card");
+
+    offers.forEach((offer) => {
+      const companyName = offer
+        .querySelector(".company-name")
+        .textContent.toLowerCase();
+      if (companyName.includes(searchTerm)) {
+        offer.style.display = "flex";
+      } else {
+        offer.style.display = "none";
+      }
+    });
+  });
+}
+
+function setupAddonCheckboxes() {
+}
+
+function buyOffer(button) {
+  const card = button.closest(".offer-card");
+  const company = card.querySelector(".company-name").textContent;
+  const price = card.querySelector(".price-value").textContent;
+  const endurance = card.querySelector(".endurance-select").value;
+
+  if (endurance === "Select Value") {
+    alert("Please select an endurance value before proceeding.");
+    return;
+  }
+
+  alert(`Proceeding to checkout for ${company}\nTotal: ₪ ${price}\nEndurance: ${endurance}`);
+}
+
+function goToNextPage() {
+  alert("Proceeding to quotes list...");
+
+}
+
