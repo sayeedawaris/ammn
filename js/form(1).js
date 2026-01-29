@@ -180,6 +180,12 @@ document.getElementById("verifyModal").addEventListener("click", function (e) {
     hideVerificationModal();
   }
 });
+function selectToggle(button) {
+  const group = button.parentElement; 
+  const buttons = group.querySelectorAll(".toggle-btn");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
+}
 
 
 function generateCaptcha() {
