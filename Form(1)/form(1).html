@@ -50,15 +50,14 @@
             </div>
         </div>
 
-        <div class="content">
-            <div class="left-logo">
-            <img src="../assets/Ellipse 768 (1).png" alt="Ellipse" class="left-logo">
-            </div>
-           <div class="right-logo">
-           <img src="../assets/Vector 3 (1).png" alt="Logo" class="right-logo">
-        </div> 
             
-           <div id="car-details-page" class="page-content active">
+           <div id="car-details-page" class="page-content active ">
+            <div class="page-bg-logos">
+        <img src="../assets/Ellipse 768 (1).png" alt="Background Logo Left" class="bg-logo-left">
+
+        <img src="../assets/Vector 3 (1).png" alt="Background Logo Right" class="bg-logo-right">
+    </div>
+
             <div class="form-container">
                 <div class="title">
                     <h1>Secure your car and have<br>peace of mind.</h1>
@@ -115,14 +114,14 @@
 
                     <div class="additional-data">
                         <label class="additional-data-label">
-                            <input type="checkbox" id="additionalData" checked onchange="toggleAdditionalSections()">
+                            <input type="checkbox" id="additionalData" onchange="toggleAdditionalSections()">
                             <div class="additional-data-text">
                                 <strong>Show Additional Data</strong>
                                 <small>(The more information you have, the more discounts we can offer you.)</small>
                             </div>
                         </label>
                     </div>
-                    <div id="vehicleDataSection" class="additional-sections">
+                    <div id="vehicleDataSection" class="additional-sections hidden">
                         <div class="section-header">
                             <div class="section-title">
                                 <img src="../assets/Frame (6).png" alt="Vehicle Icon" class="section-icon">
@@ -136,8 +135,8 @@
                                 <div class="input-group">
                                     <label>Transmission type</label>
                                     <div class="toggle-buttons">
-                                        <button class="toggle-btn active" onclick="selectTransmission(this, 'manual')">Manual</button>
-                                        <button class="toggle-btn" onclick="selectTransmission(this, 'automatic')">Automatic</button>
+                                        <button class="toggle-btn active" onclick="selectToggle(this, 'manual')">Manual</button>
+                                        <button class="toggle-btn" onclick="selectToggle(this, 'automatic')">Automatic</button>
                                     </div>
                                 </div>
 
@@ -379,6 +378,11 @@
         </div>
     </div>
         <div id="insurance-details-page" class="page-content">
+            <div class="page-bg-logos">
+        <img src="../assets/Ellipse 768 (1).png" alt="Background Logo Left" class="bg-logo-left">
+        <img src="../assets/Vector 3 (1).png" alt="Background Logo Right" class="bg-logo-right">
+    </div>
+
             <div class="form-container">
                 <div class="form-card">
                     <div class="section-header" style="margin-top: 0;">
@@ -421,7 +425,8 @@
                     </div>
 
                     <div class="driver-cards">
-                        <div class="driver-card" id="driverCardsContainer">
+                        <div class="driver-card-container" id="driverCardsContainer">
+                            <div class="driver-card">
                             <div class="driver-header">
                                 <span class="driver-title">Main Driver</span>
                                 <span class="driver-id">ID-1012345678</span>
@@ -438,7 +443,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        </div>
                         <div class="add-driver-card" onclick="addDriver()">
                             <div class="add-driver-content">
                                 <div class="add-icon">+</div>
@@ -468,7 +473,12 @@
         </div>
     </div>
 
-    <div id="offers-page" class="page-content active">
+    <div id="offers-page" class="page-content ">
+        <div class="page-bg-logos1">
+        <img src="../assets/Ellipse 768 (1).png" alt="Background Logo Left" class="bg-logo-left1">
+        <img src="../assets/Vector 3 (1).png" alt="Background Logo Right" class="bg-logo-right1">
+    </div>
+
             <div class="offers-container">
                 <div class="info-section">
                     <div class="section-title-offers">Insurance Information</div>
@@ -489,6 +499,7 @@
                             <div class="info-label-offers">Maker</div>
                             <div class="info-value-offers">AMMNINS</div>
                         </div>
+                        <img src="../assets/Frame 1984078160.png">
                     </div>
 
                     <div class="section-title-offers" style="margin-top: 25px;">Vehicle Information</div>
@@ -572,7 +583,7 @@
             <div class="leadership-slider-container">
                 <label class="leadership-label">Leadership Ratio</label>
                 <div class="slider-wrapper">
-                    <input type="range" min="10" max="100" value="20" class="leadership-slider" id="leadershipSlider">
+                    <input type="range" min="0" max="100" value="40" class="leadership-slider" id="leadershipSlider">
                     <div class="slider-labels" >
                         <span>10%</span>
                         <span>20%</span>
@@ -585,11 +596,11 @@
             </div>
 
             <div class="driver-checkbox-card">
-                <input type="checkbox" id="showDriverDetails" onchange="toggleDriverAdditionalDetails()">
+                <input type="checkbox" id="showDriverDetails"  onchange="toggleDriverAdditionalDetails()">
                 <span>Show Additional Details</span>
             </div>
 
-            <div id="driverAdditionalDetails" class="additional-details-section hidden">
+            <div id="driverAdditionalDetails" class="additional-details-section hidden ">
                 <div class="driver-form-row">
                     <div class="driver-form-field">
                         <input type="text" id="kinship" placeholder="Kinship">
