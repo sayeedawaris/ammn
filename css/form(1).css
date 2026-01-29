@@ -100,7 +100,7 @@ body {
 .bg-logo-left {
     position:absolute;
     left: -40px;
-    width: 1000px;
+    width: 10000px;
     height: auto;
      z-index: 1;
    
@@ -405,7 +405,7 @@ select option {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #484a4d;
+  color: #d0d2d5;
   font-size: 10px;
 }
 
@@ -418,7 +418,7 @@ select option {
 .toggle-buttons {
   display: flex;
   gap: 10px;
-  background: #f0f1f1;
+  background: #f0f3f3;
   padding: 5px 4px 5px 4px;
   border-radius: 8px;
   width: fit-content;
@@ -432,7 +432,7 @@ select option {
   padding: 5px 4px 5px 4px;
   border: 1px solid #c8c6c6;
   border-radius: 8px;
-  background: rgb(181, 179, 179);
+  background: rgb(172, 172, 172);
   cursor: pointer;
   font-size: 14px;
   transition: all 0.3s;
@@ -443,12 +443,13 @@ select option {
 
 .toggle-btn:hover {
   background:#ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(96, 94, 94, 0.1);
 
 }
 .toggle-btn.active {
-  background-color:#d5d3d3 ;
+  background-color:#d0d0d3 ;
  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+ transform: scale(0.97);
 }
 
 
