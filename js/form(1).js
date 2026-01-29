@@ -7,22 +7,13 @@ document.querySelectorAll(".tab").forEach((tab) => {
 });
 
 function switchToPage(pageName) {
-
- 
-   document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
-
+  document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
   document.querySelector(`[data-page="${pageName}"]`).classList.add("active");
-  document
-    .querySelectorAll(".page-content")
-    .forEach((p) => p.classList.remove("active"));
-
+  document.querySelectorAll(".page-content").forEach((p) => p.classList.remove("active"));
 
   if (pageName === "car-details") {
     document.getElementById("car-details-page").classList.add("active");
   } else if (pageName === "insurance-details") {
-    document.getElementById("insurance-details-page").classList.add("active");
-  }
-  else if (pageName === "insurance-details") {
     document.getElementById("insurance-details-page").classList.add("active");
   } else if (pageName === "offers") {
     document.getElementById("offers-page").classList.add("active");
@@ -35,7 +26,6 @@ function switchToPage(pageName) {
     document.getElementById("checkout-page").classList.add("active");
   }
 }
-
 
 
 function toggleYearField() {
@@ -75,7 +65,7 @@ function toggleSafetyFeatures() {
 
 
 function selectToggle(button) {
-  const group = button.parentElement;
+  const parent = button.parentElement;
   const buttons = group.querySelectorAll(".toggle-btn");
   buttons.forEach((btn) => btn.classList.remove("active"));
   button.classList.add("active");
@@ -94,6 +84,72 @@ function decreaseCounter(id) {
   if (value > 100) {
     input.value = value - 100;
   }
+}
+
+function selectTransmission(button, type) {
+  const parent = button.parentElement;
+  const buttons = group.querySelectorAll(".toggle-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+}
+
+
+function increaseEngine() {
+  const input = document.getElementById("engineSize");
+  let value = parseInt(input.value);
+  input.value = value + 100;
+}
+
+function decreaseEngine() {
+  const input = document.getElementById("engineSize");
+  let value = parseInt(input.value);
+  if (value > 100) {
+    input.value = value - 100;
+  }
+}
+
+
+function selectKm(button, type) {
+  const group = button.parentElement;
+  const buttons = group.querySelectorAll(".toggle-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+  console.log("Kilometers selected:", type);
+}
+
+
+function selectCoverage(button, age) {
+  const group = button.parentElement;
+  const buttons = group.querySelectorAll(".toggle-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+  console.log("Coverage selected:", age);
+}
+
+
+function selectModification(button, value) {
+  const group = button.parentElement;
+  const buttons = group.querySelectorAll(".toggle-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+  console.log("Modification:", value);
+}
+
+
+function selectTrailer(button, value) {
+  const group = button.parentElement;
+  const buttons = group.querySelectorAll(".toggle-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+  console.log("Trailer:", value);
+}
+
+function selectRenew(button, value) {
+  const group = button.parentElement;
+  const buttons = group.querySelectorAll(".toggle-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+  console.log("Renew:", value);
 }
 
 
@@ -309,6 +365,7 @@ document
 function toggleDriverAdditionalDetails() {
   const checkbox = document.getElementById("showDriverDetails");
   const details = document.getElementById("driverAdditionalDetails");
+  
 
   if (checkbox.checked) {
     details.classList.remove("hidden");
@@ -364,6 +421,25 @@ function saveDriver() {
   hideAddDriverModal();
   resetAddDriverForm();
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".leadership-slider");
+
+  if (!slider) return;
+
+  function updateSlider() {
+    const value = slider.value;
+    slider.style.background = `linear-gradient(
+      to right,
+      #2f6df6 0%,
+      #2f6df6 ${value}%,
+      #e5e7eb ${value}%,
+      #e5e7eb 100%
+    )`;
+  }
+  updateSlider(); 
+  slider.addEventListener("input", updateSlider);
+});
+
 
 
 function addDriverCard(driverData) {
@@ -514,6 +590,9 @@ function createOfferCard(offer) {
   const card = document.createElement("div");
   card.className = "offer-card";
   card.dataset.basePrice = offer.price;
+  card.style.background = "transparent";
+  card.style.position = "relative";
+  card.style.zIndex = "1";
 
   const addonsHTML = offer.addons
     .map(
@@ -521,7 +600,7 @@ function createOfferCard(offer) {
         <div class="addon-item">
             <input type="checkbox" id="${addon.id}" data-price="${addon.price}" onchange="updateOfferPrice(this)">
             <label for="${addon.id}" class="addon-label">${addon.name}</label>
-            <span class="addon-price">₪ ${addon.price}</span>
+            <span class="addon-price"><img src="../assets/Frame 1984078063.png" alt="Currency Icon" style="fill: green;"> ${addon.price}</span>
         </div>
     `
     )
@@ -529,7 +608,7 @@ function createOfferCard(offer) {
 
   card.innerHTML = `
         <div class="company-logo">
-            مربى<br>nomi
+            <img src="../assets/Morni_Logo (1).png" alt="Company Logo">
         </div>
         <div class="offer-content">
             <div class="company-name">${offer.company}</div>
@@ -554,10 +633,11 @@ function createOfferCard(offer) {
         <div class="offer-pricing">
             <div class="pricing-header">
                 <span class="pricing-label">Payable Amount</span>
-                <a href="#" class="pricing-details">Pricing Details <img src=""</a>
+                <a href="#" class="pricing-details">Pricing Details  <div class="info-icon2"> ↓ </div></a>
             </div>
+            <div class="pricing-body">
             <div class="price-amount">
-                <span class="currency">₪</span> <span class="price-value">${offer.price.toFixed(2)}</span>
+                <span class="currency"><img src="../assets/Frame 1984078063.png" alt="Currency Icon" style="fill: green;">  </span> <span class="price-value">${offer.price.toFixed(2)}</span>
             </div>
             <div class="endurance-section">
                 <div class="endurance-label">Endurance Value</div>
@@ -572,10 +652,12 @@ function createOfferCard(offer) {
                 Buy Now →
             </button>
         </div>
+        </div>
     `;
 
   return card;
 }
+
 
 function updateOfferPrice(checkbox) {
   const card = checkbox.closest(".offer-card");
